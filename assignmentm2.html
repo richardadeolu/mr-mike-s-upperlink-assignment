@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    button{
+        color: blue;
+        text-align: center;
+        width: 100px;
+        height: 50px;
+    }
+</style>
+<body>
+    <h1 style="color: #5f2727; font-family: fantasy; font-weight: BOLD;"> XII ELECTRONIC store</h1>
+    <button onclick="market()">Buy Now</button>
+</body>
+<script>
+    let  merchandise = [
+         {
+            item:"fan",
+            price:800,
+        },
+        {
+            item:"television",
+            price:500,
+        },
+        {
+            item:"headphone",
+            price:700,
+        },
+        {
+            item: "refrigerator",
+            price: 600,
+        }
+         ]
+
+        function market(){
+        let search = prompt("Search for products");
+        let devices = merchandise.find(items => items.item == search.toLowerCase())
+        if (devices){
+            alert(`${devices.item} has been found`)
+            alert(`${devices.item} costs # ${devices.price}`);
+            payment(devices.price);
+        }else{
+            alert("Sorry Product wasn't found")
+            dialog()
+        }
+        }
+
+        function payment(price){
+        let amount = prompt("Pay for Product");
+        if (amount == 1000 || amount == 500 || amount == 200){
+            if (amount > price){
+            let balance = amount - price;
+            alert(`Purchase was successful, your balance is # ${balance}`)
+            }else{
+            alert('Insufficient amount entered')
+            dialog()
+            }
+        } else{
+            alert("Thanks for checking us out")
+            dialog()
+        }
+        }
+
+        function dialog(){
+            let cont = confirm("Click OK to try again or click Cancel to walk away")
+            if (cont == true){
+            market();
+            }else{
+            alert("Thank you for trying out our store")
+            }
+        }
+            
+  /*const products = [{
+        name: "shirt",
+        price: 500
+        }, 
+        {
+        name: 'shoe',
+        price: 800
+        },
+        {
+        name: 'bag',
+        price: 300
+        },
+        {
+        name: 'trouser',
+        price: 600
+        }
+]
+function shop(){
+  let search = prompt("Search for products");
+  let product = products.find(item => item.name == search.toLowerCase())
+  if (product){
+    alert(`${product.name} has been found`)
+    alert(`${product.name} costs # ${product.price}`);
+    payment(product.price);
+  }else{
+    alert("Sorry Product wasn't found")
+    dialog()
+  }
+}
+
+function payment(price){
+  let amount = prompt("Pay for Product");
+  if (amount == 1000 || amount == 500 || amount == 200){
+    if (amount > price){
+      let balance = amount - price;
+      alert(`Purchase was successful, your balance is # ${balance}`)
+    }else{
+      alert('Insufficient amount entered')
+      dialog()
+    }
+  } else{
+    alert("Sorry amount entered wasn't recognized")
+    dialog()
+  }
+}
+
+function dialog(){
+    let con = confirm("Click OK to try again or click Cancel to walk away")
+    if (con == true){
+      shop();
+    }else{
+      alert("Thank you for trying out our store")
+    }
+}*/
+          
+</script>
+</html>
